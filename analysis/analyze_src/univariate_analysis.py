@@ -23,7 +23,7 @@ class NumericalUnivariateAnalysis(UnivariateAnalysisStrategy):
         plt.show()
 
 
-class CategoricalUnivariableAnalysis(UnivariateAnalysisStrategy):
+class CategoricalUnivariateAnalysis(UnivariateAnalysisStrategy):
     def analyze(self, df: pd.DataFrame, feature:str):
         plt.figure(figsize=(10, 6))
         sns.countplot(x=feature, data=df, palette="muted")
