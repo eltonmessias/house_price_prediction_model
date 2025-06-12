@@ -21,14 +21,14 @@ class NumericalVsNumericalAnalysis(BivariateAnalysisStrategy):
         plt.ylabel(feature2)
         plt.show()
 
-class CategoricalVsCategoricalAnalysis(BivariateAnalysisStrategy):
+class CategoricalVsNumericalAnalysis(BivariateAnalysisStrategy):
     def analyze(self, df: pd.DataFrame, feature1: str, feature2: str):
         plt.figure(figsize=(10, 6))
         sns.boxplot(x=feature1, y=feature2, data=df)
         plt.title(f"{feature1} vs {feature2}")
         plt.xlabel(feature1)
         plt.ylabel(feature2)
-        plt.xticks(rotatiion=45)
+        plt.xticks(rotation=45)
         plt.show()
 
 class BivariateAnalyzer:
