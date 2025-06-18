@@ -4,7 +4,7 @@ from zenml import Model, pipeline, step
 
 @pipeline(
     model=Model(
-        name="house_prices_predictor",
+        name="house_price_predictor",
     ),
 )
 def ml_pipeline():
