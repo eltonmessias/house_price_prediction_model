@@ -15,6 +15,9 @@ from zenml.client import Client
 
 
 experiment_tracker = Client().active_stack.experiment_tracker
+
+if experiment_tracker is None:
+    raise RuntimeError("No experiment tracker configured in the active ZenML stack.")
 from zenml import Model
 
 
@@ -72,6 +75,7 @@ def model_building_step(
     if not mlflow.active_run():
         mlflow.start_run() # Start a new MLflow run if there isn't one active
 
+
     try:
         # Enable autologging for scikit-learn to automatically capture model metrics, parameters, and artifacts
         mlflow.sklearn.autolog()
@@ -82,7 +86,7 @@ def model_building_step(
 
         #Log the columns that the model expects
         onehot_encoder = (
-            pipeline.named_steps["preprocessor"].transformer_[1][1].named_steps["onehot"]
+            pipeline.named_steps["preprocessor"].transformers_[1][1].named_steps["onehot"]
         )
         onehot_encoder.fit(
             X_train[categorical_cols]

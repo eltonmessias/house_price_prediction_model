@@ -16,7 +16,7 @@ class ModelBuildingStrategy(ABC):
         pass
 
 class LinearRegressionStrategy(ModelBuildingStrategy):
-    def build_and_train_model(self, X_train: pd.DataFrame, y_train: pd.Series) -> RegressorMixin:
+    def build_and_train_model(self, X_train: pd.DataFrame, y_train: pd.Series) -> Pipeline:
         if not isinstance(X_train, pd.DataFrame):
             raise TypeError("X_train must be a pandas DataFrame.")
         if not isinstance(y_train, pd.Series):

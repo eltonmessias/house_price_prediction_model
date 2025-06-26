@@ -17,8 +17,8 @@ class ZipDataIngestor(DataIngestor):
         if not file_path.endswith(".zip"):
             raise ValueError("File extension must be .zip")
 
-        with zipfile.Zipfile(file_path, "r") as zip_ref:
-            zip_ref.extractall()
+        with zipfile.ZipFile(file_path, "r") as zip_ref:
+            zip_ref.extractall("extracted_data")
 
         extracted_files = os.listdir("extracted_data")
         csv_files = [f for f in extracted_files if f.endswith(".csv")]

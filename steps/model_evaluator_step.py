@@ -11,7 +11,7 @@ from zenml import step
 @step
 def model_evaluator_step(
         trained_model: Pipeline, X_test: pd.DataFrame, y_test: pd.Series
-)-> tuple[dict, None]:
+)-> tuple[dict, float]:
 
     """
     :param trained_model:  The trained pipeline containing the model and preprocessing steps

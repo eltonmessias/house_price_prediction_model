@@ -5,9 +5,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 import pandas as pd
-from bokeh.util.logconfig import level
 
-logging.INFO(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 #Abstract Base Class for Outlier Detection Strategy
 class OutlierDetectionStrategy(ABC):
